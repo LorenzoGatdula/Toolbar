@@ -2,11 +2,18 @@ package com.example.toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
+    ConstraintLayout cl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i("lCycle", "onCreate() is called...");
 
         toolbar = findViewById(R.id.toolbar);
+        cl = findViewById(R.id.cLayout);
         setSupportActionBar(toolbar);
     }
 
@@ -49,5 +57,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         Log.i("lCycle", "onRestart() is called...");
+    }
+
+    public void display(View v){
+      //  Toast.makeText(this, "button was clicked", Toast.LENGTH_SHORT);
+        Snackbar.make(cl, "HELLO...", Snackbar.LENGTH_SHORT).show();
+
     }
 }
